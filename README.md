@@ -16,16 +16,16 @@ You need to install it [here](https://greasyfork.org/en/scripts/465349-chatgpt-p
 
 * To activate the dialog box, press **Ctrl/Command + /**.
 
-![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/callout.png')
+![image](https://raw.githubusercontent.com/AnnyTerfect/chatgpt-prompt-helper/main/images/callout.png)
 
 * Use the search bar or keyboard **up/down arrows** to select the desired prompt from the available list.
 
-![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/search.png')
+![image](https://raw.githubusercontent.com/AnnyTerfect/chatgpt-prompt-helper/main/images/search.png)
 
 * **Press Enter** to automatically fill the selected prompt into the ChatGPT chatbox.
 
-![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/autoinput.png')
+![image](https://raw.githubusercontent.com/AnnyTerfect/chatgpt-prompt-helper/main/images/autoinput.png)
 
 * Click on the **Edit button** to customize prompts according to your needs.
 
-![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/edit.png')
+![image](https://raw.githubusercontent.com/AnnyTerfect/chatgpt-prompt-helper/main/images/edit.png)
