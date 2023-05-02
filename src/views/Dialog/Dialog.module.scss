@@ -1,0 +1,109 @@
+.mainContainer {
+  @apply fixed left-1/2 top-1/2;
+  @apply z-10;
+  @apply transform -translate-x-1/2 -translate-y-1/2;
+  @apply flex flex-col;
+  @apply p-4;
+  @apply max-w-600px max-h-400px w-1/1 h-1/1;
+  @apply bg-gray-900 rounded-xl;
+  @apply transition-all duration-600;
+  @apply text-white;
+
+  .title {
+    @apply flex justify-between items-center;
+    @apply text-2xl;
+
+    .tips {
+      @apply ml-3 '!text-sm' '!text-gray-400';
+    }
+
+    .buttons {
+      @apply h-1em w-1em cursor-pointer;
+
+      .edit {
+        @apply stroke-2 stroke-white;
+      }
+
+      .finish {
+        @apply stroke-2 stroke-white fill-none;
+      }
+    }
+  }
+
+  .search {
+    @apply mt-5 w-1/1;
+    @apply bg-transparent border-white rounded;
+    @apply text-white;
+    @apply focus: outline-none focus:border-blue-500;
+  }
+
+  .promptContainer {
+    @apply mt-4 w-1/1 h-1/1;
+    @apply bg-gray-800 rounded-xl;
+    @apply overflow-y-scroll;
+
+    .prompt {
+      @apply px-4 py-1 select-none;
+    }
+
+    .promptEdit {
+      @apply px-4;
+      @apply flex flex-row justify-between items-center;
+      @apply select-none;
+
+      .editContainer {
+        @apply w-1/1;
+        .input {
+          @apply w-1/1;
+          @apply bg-transparent border-white rounded;
+          @apply text-white;
+          @apply focus: outline-none focus:border-blue-500;
+        }
+        .textarea {
+          @apply mt-2;
+        }
+      }
+
+      .button {
+        @apply flex;
+
+        .svg {
+          @apply ml-1 w-1.2em h-1.2em cursor-pointer;
+
+          .edit {
+            @apply stroke-2 stroke-white;
+          }
+          .finish {
+            @apply stroke-2 stroke-white fill-none;
+          }
+          .delete {
+            @apply stroke-2 stroke-white fill-none;
+          }
+        }
+      }
+    }
+
+    .active {
+      @apply bg-gray-700;
+    }
+  }
+  .addContainer {
+    @apply py-2 mb-2;
+    @apply text-xl text-center;
+    @apply hover:bg-gray-700;
+    @apply cursor-pointer;
+  }
+}
+
+.editing {
+  @apply max-w-800px max-h-600px;
+  .promptEdit {
+    @apply py-2;
+    @apply hover:bg-gray-700;
+  }
+}
+
+.mask {
+  @apply fixed left-0 top-0 w-full h-full;
+  @apply bg-black opacity-50;
+}

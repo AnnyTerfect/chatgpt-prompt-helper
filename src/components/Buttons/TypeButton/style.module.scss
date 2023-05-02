@@ -1,0 +1,6 @@
+.button {
+    @apply stroke-2 stroke-white fill-none;
+}
+.button + .button {
+    @apply ml-2;
+}

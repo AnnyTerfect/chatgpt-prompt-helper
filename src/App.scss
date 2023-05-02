@@ -1,0 +1,7 @@
+#__next {
+  @apply w-1/1;
+}
+
+.w-full.h-full .hidden {
+  @apply '!flex';
+}
