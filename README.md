@@ -15,10 +15,17 @@ The repository contains an overwhelming number of prompts, which hinders compreh
 You need to install it [here](https://greasyfork.org/en/scripts/465349-chatgpt-prompt-helper) first.
 
 * To activate the dialog box, press **Ctrl/Command + /**.
-![image]('./images/callout.png')
+
+![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/callout.png')
+
 * Use the search bar or keyboard **up/down arrows** to select the desired prompt from the available list.
-![image]('./images/search.png')
+
+![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/search.png')
+
 * **Press Enter** to automatically fill the selected prompt into the ChatGPT chatbox.
-![image]('./images/autoinput.png')
+
+![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/autoinput.png')
+
 * Click on the **Edit button** to customize prompts according to your needs.
-![image]('./images/edit.png')
+
+![image]('https://github.com/AnnyTerfect/chatgpt-prompt-helper/blob/main/images/edit.png')
