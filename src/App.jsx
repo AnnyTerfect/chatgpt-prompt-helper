@@ -11,7 +11,7 @@ function App() {
     });
     function handleKeyDown(event) {
       const textarea = document.querySelector("textarea");
-      if (event.key === "/" && event.target !== textarea) {
+      if (event.key === "/" && !event.metaKey && !event.ctrlKey && event.target !== textarea) {
         event.preventDefault();
         textarea.focus();
       }
