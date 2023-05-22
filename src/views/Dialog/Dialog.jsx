@@ -118,10 +118,7 @@ function Dialog() {
     setSearch("");
     setSelectedIndex(0);
   }
-  function handleClickDocument(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log(e);
+  function handleClickDocument() {
     setShow(false);
   }
   function handleClickTopButton() {
