@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.3",
   "type": "module",
+  "description": "This Tampermonkey script is a highly customizable plugin designed to assist with editing and generating ChatGPT prompts.",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
