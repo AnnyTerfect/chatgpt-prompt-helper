@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "pinyin-pro": "^3.13.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pdf": "^6.2.2"
@@ -20,6 +21,12 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "vite": "^4.2.2",
