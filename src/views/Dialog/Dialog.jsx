@@ -119,7 +119,9 @@ function Dialog() {
     setSelectedIndex(0);
   }
   function handleClickDocument() {
-    setShow(false);
+    if (!editing) {
+      setShow(false);
+    }
   }
   function handleClickTopButton() {
     setSearch("");
