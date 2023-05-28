@@ -47,7 +47,7 @@ function Dialog() {
     }
   }, [editing, prompts]);
 
-  function enter(id) {
+  const enter = useCallback((id) => {
     const textarea = document.querySelector('textarea');
     textarea.value = prompts.find((item) => item.id === id).prompt;
     textarea.dispatchEvent(new Event('input', { bubbles: true }));
@@ -55,21 +55,21 @@ function Dialog() {
     setShow(false);
     setSearch('');
     setSelectedIndex(0);
-  }
+  }, [prompts]);
 
-  function handleClickDocument() {
+  const handleClickDocument = useCallback(() => {
     if (!editing) {
       setShow(false);
     }
-  }
+  }, [editing]);
 
-  function handleClickPrompt(e, id) {
+  const handleClickPrompt = useCallback((e, id) => {
     e.preventDefault();
     e.stopPropagation();
     enter(id);
-  }
+  }, [enter]);
 
-  function handleChangeAct(e, id) {
+  const handleChangeAct = useCallback((e, id) => {
     const { value } = e.target;
     setPrompts((val) => val.map((item) => {
       if (item.id === id) {
@@ -77,9 +77,9 @@ function Dialog() {
       }
       return item;
     }));
-  }
+  }, []);
 
-  function handleChangePrompt(e, id) {
+  const handleChangePrompt = useCallback((e, id) => {
     const { value } = e.target;
     setPrompts((val) => val.map((item) => {
       if (item.id === id) {
@@ -87,15 +87,14 @@ function Dialog() {
       }
       return item;
     }));
-  }
+  }, []);
 
-  function handleClickDelete(id) {
+  const handleClickDelete = useCallback((id) => {
     setEditIndex(-1);
-    savePrompts(prompts.filter((item) => item.id !== id));
     setPrompts((val) => val.filter((item) => item.id !== id));
-  }
+  }, []);
 
-  function handleClickAdd() {
+  const handleClickAdd = useCallback(() => {
     setPrompts((val) => [
       ...val,
       {
@@ -105,11 +104,11 @@ function Dialog() {
         pinyin: '',
       },
     ]);
-    setEditIndex(prompts.length);
-    setSelectedIndex(prompts.length);
-  }
+    setEditIndex(filteredPromptsRef.current.length);
+    setSelectedIndex(filteredPromptsRef.current.length);
+  }, []);
 
-  function handleUp(index) {
+  const handleUp = useCallback((index) => {
     if (index === 0) {
       return;
     }
@@ -122,10 +121,10 @@ function Dialog() {
     });
     setEditIndex(index - 1);
     setSelectedIndex(index - 1);
-  }
+  }, []);
 
-  function handleDown(index) {
-    if (index === prompts.length - 1) {
+  const handleDown = useCallback((index) => {
+    if (index === filteredPromptsRef.current.length - 1) {
       return;
     }
     setPrompts((val) => {
@@ -137,9 +136,9 @@ function Dialog() {
     });
     setEditIndex(index + 1);
     setSelectedIndex(index + 1);
-  }
+  }, []);
 
-  function handleTop(index) {
+  const handleTop = useCallback((index) => {
     if (index === 0) {
       return;
     }
@@ -152,10 +151,10 @@ function Dialog() {
     });
     setEditIndex(0);
     setSelectedIndex(0);
-  }
+  }, []);
 
-  function handleBottom(index) {
-    if (index === prompts.length - 1) {
+  const handleBottom = useCallback((index) => {
+    if (index === filteredPromptsRef.current.length - 1) {
       return;
     }
     setPrompts((val) => {
@@ -165,9 +164,9 @@ function Dialog() {
       newPrompts.push(temp);
       return newPrompts;
     });
-    setEditIndex(prompts.length - 1);
-    setSelectedIndex(prompts.length - 1);
-  }
+    setEditIndex(filteredPromptsRef.current.length - 1);
+    setSelectedIndex(filteredPromptsRef.current.length - 1);
+  }, []);
 
   useEffect(() => {
     function handleKeyDown(e) {
