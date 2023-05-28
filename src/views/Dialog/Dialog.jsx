@@ -7,7 +7,7 @@ import { loadPrompts, savePrompts } from '../../data/index';
 import styles from './Dialog.module.scss';
 
 function Dialog() {
-  const [prompts, setPrompts] = useState([]);
+  const [prompts, setPrompts] = useState(loadPrompts());
   const [editing, setEditing] = useState(false);
   const [search, setSearch] = useState('');
   const [searchPinyin, setSearchPinyin] = useState('');
@@ -104,9 +104,6 @@ function Dialog() {
     setSelectedIndex(prompts.length);
   }
 
-  useEffect(() => {
-    setPrompts(loadPrompts());
-  }, []);
   useEffect(() => {
     if (show && !editing) {
       setSelectedIndex(0);
