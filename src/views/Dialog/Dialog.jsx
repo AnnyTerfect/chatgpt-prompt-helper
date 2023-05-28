@@ -194,7 +194,7 @@ function Dialog() {
             />
           </div>
 
-          <div className={styles.searchContainer}>
+          <div>
             <input
               ref={inputRef}
               type="text"
