@@ -84,16 +84,11 @@ function Dialog() {
       return item;
     }));
   }
-  function handleClickDelete(index) {
-    if (confirmIndex === index) {
-      const { id } = prompts[index];
-      setEditIndex(-1);
-      setConfirmIndex(-1);
-      savePrompts(prompts.filter((item) => item.id !== id));
-      setPrompts((val) => val.filter((item) => item.id !== id));
-    } else {
-      setConfirmIndex(index);
-    }
+  function handleClickDelete(id) {
+    setEditIndex(-1);
+    setConfirmIndex(-1);
+    savePrompts(prompts.filter((item) => item.id !== id));
+    setPrompts((val) => val.filter((item) => item.id !== id));
   }
   function handleClickAdd() {
     setPrompts((val) => [
@@ -231,7 +226,7 @@ function Dialog() {
                 onMouseOver={() => setSelectedIndex(index)}
                 onChangePrompt={(e) => handleChangePrompt(e, item.id)}
                 onChangeAct={(e) => handleChangeAct(e, item.id)}
-                onDelete={() => handleClickDelete(index)}
+                onDelete={() => handleClickDelete(item.id)}
               />
             ))}
           </div>
