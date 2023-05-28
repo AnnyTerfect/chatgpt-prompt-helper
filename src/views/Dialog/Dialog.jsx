@@ -68,25 +68,21 @@ function Dialog() {
   }
   function handleChangeAct(e, id) {
     const { value } = e.target;
-    setPrompts((val) =>
-      val.map((item) => {
-        if (item.id === id) {
-          return { ...item, act: value };
-        }
-        return item;
-      })
-    );
+    setPrompts((val) => val.map((item) => {
+      if (item.id === id) {
+        return { ...item, act: value };
+      }
+      return item;
+    }));
   }
   function handleChangePrompt(e, id) {
     const { value } = e.target;
-    setPrompts((val) =>
-      val.map((item) => {
-        if (item.id === id) {
-          return { ...item, prompt: value };
-        }
-        return item;
-      })
-    );
+    setPrompts((val) => val.map((item) => {
+      if (item.id === id) {
+        return { ...item, prompt: value };
+      }
+      return item;
+    }));
   }
   function handleClickDelete(index) {
     if (confirmIndex === index) {
@@ -180,8 +176,7 @@ function Dialog() {
   }, [selectedIndex, editIndex, show]);
   useEffect(() => {
     document.body.addEventListener('click', handleClickDocument);
-    return () =>
-      document.body.removeEventListener('click', handleClickDocument);
+    return () => document.body.removeEventListener('click', handleClickDocument);
   }, [handleClickDocument]);
 
   if (show) {
@@ -236,7 +231,7 @@ function Dialog() {
                 onMouseOver={() => setSelectedIndex(index)}
                 onChangePrompt={(e) => handleChangePrompt(e, item.id)}
                 onChangeAct={(e) => handleChangeAct(e, item.id)}
-                onDelete={() => handleClickDelete(item.index)}
+                onDelete={() => handleClickDelete(index)}
               />
             ))}
           </div>
