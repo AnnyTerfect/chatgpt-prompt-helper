@@ -36,6 +36,18 @@ function Dialog() {
     return newFilteredPrompts;
   }, [search, searchPinyin, prompts]);
 
+  const handleClickTopButton = useCallback(() => {
+    setSearch('');
+    if (editing) {
+      setEditing(false);
+      setEditIndex(-1);
+      savePrompts(prompts);
+    } else {
+      setEditing(true);
+      setSelectedIndex(0);
+    }
+  }, [editing, prompts]);
+
   function select(id) {
     const textarea = document.querySelector('textarea');
     textarea.value = prompts.find((item) => item.id === id).prompt;
@@ -50,17 +62,6 @@ function Dialog() {
       setShow(false);
     }
   }
-  const handleClickTopButton = useCallback(() => {
-    setSearch('');
-    if (editing) {
-      setEditing(false);
-      setEditIndex(-1);
-      savePrompts(prompts);
-    } else {
-      setEditing(true);
-      setSelectedIndex(0);
-    }
-  }, [editing, prompts]);
   function handleClickPrompt(e, id) {
     e.preventDefault();
     e.stopPropagation();
