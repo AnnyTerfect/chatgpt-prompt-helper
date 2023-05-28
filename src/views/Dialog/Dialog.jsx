@@ -172,7 +172,7 @@ function Dialog() {
   useEffect(() => {
     document.body.addEventListener('click', handleClickDocument);
     return () => document.body.removeEventListener('click', handleClickDocument);
-  }, []);
+  }, [handleClickDocument]);
 
   if (show) {
     return (
