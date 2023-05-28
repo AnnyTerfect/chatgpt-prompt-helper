@@ -21,7 +21,7 @@ const Prompt = forwardRef((props, ref) => {
   if (editing) {
     return (
       <div
-        className={`${styles.promptEdit} ${selected ? styles.selected : ''}`}
+        className={styles.promptEdit}
       >
         {status === 'edit' ? (
           /* Show edit container */
