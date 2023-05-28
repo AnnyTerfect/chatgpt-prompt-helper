@@ -94,7 +94,7 @@ function Dialog() {
     setPrompts((val) => [
       ...val,
       {
-        id: Date.now(),
+        id: Math.random().toString(36),
         act: '',
         prompt: '',
         pinyin: '',
