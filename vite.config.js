@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import monkey, { cdn } from 'vite-plugin-monkey';
@@ -24,12 +25,12 @@ export default defineConfig({
         },
       },
     }),
-    WindiCSS()
+    WindiCSS(),
   ],
   css: {
     preprocessorOptions: {
       sass: {},
       scss: {},
-    }
-  }
+    },
+  },
 });

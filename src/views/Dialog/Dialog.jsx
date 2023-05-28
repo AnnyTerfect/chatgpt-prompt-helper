@@ -220,6 +220,7 @@ function Dialog() {
             {editing ? (
               <>
                 {filteredPrompts.map((item, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
                   <div key={index}>
                     <div
                       className={`${styles.promptEdit} ${
@@ -287,6 +288,7 @@ function Dialog() {
                   className={`cursor-pointer ${styles.prompt} ${
                     index === selectedIndex ? styles.active : ''
                   }`}
+                  // eslint-disable-next-line react/no-array-index-key
                   key={index}
                   onClick={(e) => show && handleClickPrompt(e, item.id)}
                   onMouseOver={() => show && setSelectedIndex(index)}
