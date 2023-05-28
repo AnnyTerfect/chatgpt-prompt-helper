@@ -14,6 +14,10 @@ const Prompt = forwardRef((props, ref) => {
     onChangePrompt,
     onChangeAct,
     onDelete,
+    onUp,
+    onDown,
+    onTop,
+    onBottom,
   } = props;
 
   const [status, setStatus] = useState('');
@@ -46,6 +50,30 @@ const Prompt = forwardRef((props, ref) => {
         )}
 
         <div className={styles.button}>
+          {/* Move To Top button */}
+          <TypeButton
+            className={styles.svg}
+            type="top"
+            onClick={() => onTop()}
+          />
+          {/* Move Up button */}
+          <TypeButton
+            className={styles.svg}
+            type="up"
+            onClick={() => onUp()}
+          />
+          {/* Move Down button */}
+          <TypeButton
+            className={styles.svg}
+            type="down"
+            onClick={() => onDown()}
+          />
+          {/* Move To Bottom button */}
+          <TypeButton
+            className={styles.svg}
+            type="bottom"
+            onClick={() => onBottom()}
+          />
           {/* Edit or finish button */}
           <TypeButton
             className={styles.svg}
@@ -86,6 +114,10 @@ Prompt.defaultProps = {
   onChangePrompt: () => {},
   onChangeAct: () => {},
   onDelete: () => {},
+  onUp: () => {},
+  onDown: () => {},
+  onTop: () => {},
+  onBottom: () => {},
 };
 
 Prompt.propTypes = {
@@ -98,6 +130,10 @@ Prompt.propTypes = {
   onChangePrompt: PropTypes.func,
   onChangeAct: PropTypes.func,
   onDelete: PropTypes.func,
+  onUp: PropTypes.func,
+  onDown: PropTypes.func,
+  onTop: PropTypes.func,
+  onBottom: PropTypes.func,
 };
 
 export default Prompt;

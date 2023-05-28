@@ -23,12 +23,38 @@ function ButtonContent({ type }) {
           <line x1="14" y1="11" x2="14" y2="17" />
         </g>
       );
+    case 'up':
+      return (
+        <g className={styles.button}>
+          <polyline points="18 15 12 9 6 15" />
+        </g>
+      );
+    case 'down':
+      return (
+        <g className={styles.button}>
+          <polyline points="6 9 12 15 18 9" />
+        </g>
+      );
+    case 'top':
+      return (
+        <g className={styles.button}>
+          <polyline points="18 15 12 9 6 15" />
+          <polyline points="18 9 12 3 6 9" />
+        </g>
+      );
+    case 'bottom':
+      return (
+        <g className={styles.button}>
+          <polyline points="6 9 12 15 18 9" />
+          <polyline points="6 15 12 21 18 15" />
+        </g>
+      );
     default:
       throw new Error('Unknown button type');
   }
 }
 ButtonContent.propTypes = {
-  type: PropTypes.oneOf(['edit', 'finish', 'delete']).isRequired,
+  type: PropTypes.oneOf(['edit', 'finish', 'delete', 'up', 'down', 'top', 'bottom']).isRequired,
 };
 
 function TypeButton({ className, onClick, type }) {

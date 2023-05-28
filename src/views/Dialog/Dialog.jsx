@@ -103,6 +103,62 @@ function Dialog() {
     setEditIndex(prompts.length);
     setSelectedIndex(prompts.length);
   }
+  function handleUp(index) {
+    if (index === 0) {
+      return;
+    }
+    setPrompts((val) => {
+      const newPrompts = [...val];
+      const temp = newPrompts[index - 1];
+      newPrompts[index - 1] = newPrompts[index];
+      newPrompts[index] = temp;
+      return newPrompts;
+    });
+    setEditIndex(index - 1);
+    setSelectedIndex(index - 1);
+  }
+  function handleDown(index) {
+    if (index === prompts.length - 1) {
+      return;
+    }
+    setPrompts((val) => {
+      const newPrompts = [...val];
+      const temp = newPrompts[index + 1];
+      newPrompts[index + 1] = newPrompts[index];
+      newPrompts[index] = temp;
+      return newPrompts;
+    });
+    setEditIndex(index + 1);
+    setSelectedIndex(index + 1);
+  }
+  function handleTop(index) {
+    if (index === 0) {
+      return;
+    }
+    setPrompts((val) => {
+      const newPrompts = [...val];
+      const temp = newPrompts[index];
+      newPrompts.splice(index, 1);
+      newPrompts.unshift(temp);
+      return newPrompts;
+    });
+    setEditIndex(0);
+    setSelectedIndex(0);
+  }
+  function handleBottom(index) {
+    if (index === prompts.length - 1) {
+      return;
+    }
+    setPrompts((val) => {
+      const newPrompts = [...val];
+      const temp = newPrompts[index];
+      newPrompts.splice(index, 1);
+      newPrompts.push(temp);
+      return newPrompts;
+    });
+    setEditIndex(prompts.length - 1);
+    setSelectedIndex(prompts.length - 1);
+  }
 
   useEffect(() => {
     if (show && !editing) {
@@ -227,6 +283,10 @@ function Dialog() {
                 onChangePrompt={(e) => handleChangePrompt(e, item.id)}
                 onChangeAct={(e) => handleChangeAct(e, item.id)}
                 onDelete={() => handleClickDelete(item.id)}
+                onUp={() => handleUp(index)}
+                onDown={() => handleDown(index)}
+                onTop={() => handleTop(index)}
+                onBottom={() => handleBottom(index)}
               />
             ))}
             {editing ? (
