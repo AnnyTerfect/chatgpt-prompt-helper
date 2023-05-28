@@ -1,7 +1,7 @@
 {
   "name": "ChatGPT Prompt Helper",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.5",
   "type": "module",
   "description": "This Tampermonkey script is a highly customizable plugin designed to assist with editing and generating ChatGPT prompts.",
   "license": "MIT",
