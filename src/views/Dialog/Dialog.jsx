@@ -47,7 +47,7 @@ function Dialog() {
     }
   }, [editing, prompts]);
 
-  function select(id) {
+  function enter(id) {
     const textarea = document.querySelector('textarea');
     textarea.value = prompts.find((item) => item.id === id).prompt;
     textarea.dispatchEvent(new Event('input', { bubbles: true }));
@@ -64,7 +64,7 @@ function Dialog() {
   function handleClickPrompt(e, id) {
     e.preventDefault();
     e.stopPropagation();
-    select(id);
+    enter(id);
   }
   function handleChangeAct(e, id) {
     const { value } = e.target;
@@ -262,7 +262,7 @@ function Dialog() {
                 }
                 if (e.key === 'Enter') {
                   e.preventDefault();
-                  select(filteredPrompts[selectedIndex].id);
+                  enter(filteredPrompts[selectedIndex].id);
                 }
               }}
             />
