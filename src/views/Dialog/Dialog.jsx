@@ -56,16 +56,19 @@ function Dialog() {
     setSearch('');
     setSelectedIndex(0);
   }
+
   function handleClickDocument() {
     if (!editing) {
       setShow(false);
     }
   }
+
   function handleClickPrompt(e, id) {
     e.preventDefault();
     e.stopPropagation();
     enter(id);
   }
+
   function handleChangeAct(e, id) {
     const { value } = e.target;
     setPrompts((val) => val.map((item) => {
@@ -75,6 +78,7 @@ function Dialog() {
       return item;
     }));
   }
+
   function handleChangePrompt(e, id) {
     const { value } = e.target;
     setPrompts((val) => val.map((item) => {
@@ -84,11 +88,13 @@ function Dialog() {
       return item;
     }));
   }
+
   function handleClickDelete(id) {
     setEditIndex(-1);
     savePrompts(prompts.filter((item) => item.id !== id));
     setPrompts((val) => val.filter((item) => item.id !== id));
   }
+
   function handleClickAdd() {
     setPrompts((val) => [
       ...val,
@@ -102,6 +108,7 @@ function Dialog() {
     setEditIndex(prompts.length);
     setSelectedIndex(prompts.length);
   }
+
   function handleUp(index) {
     if (index === 0) {
       return;
@@ -116,6 +123,7 @@ function Dialog() {
     setEditIndex(index - 1);
     setSelectedIndex(index - 1);
   }
+
   function handleDown(index) {
     if (index === prompts.length - 1) {
       return;
@@ -130,6 +138,7 @@ function Dialog() {
     setEditIndex(index + 1);
     setSelectedIndex(index + 1);
   }
+
   function handleTop(index) {
     if (index === 0) {
       return;
@@ -144,6 +153,7 @@ function Dialog() {
     setEditIndex(0);
     setSelectedIndex(0);
   }
+
   function handleBottom(index) {
     if (index === prompts.length - 1) {
       return;
@@ -159,26 +169,6 @@ function Dialog() {
     setSelectedIndex(prompts.length - 1);
   }
 
-  useEffect(() => {
-    if (show && !editing) {
-      setSelectedIndex(0);
-      inputRef.current.focus();
-    }
-    if (!show) {
-      setEditing(false);
-      setEditIndex(-1);
-      setSelectedIndex(0);
-      setSearch('');
-      setSearchPinyin('');
-    }
-  }, [show]);
-  useEffect(() => {
-    setSelectedIndex(0);
-    setEditIndex(-1);
-    const pinyinArray = pinyin(search, { toneType: 'none', type: 'array' });
-    const pinyinString = pinyinArray.join('').toLowerCase();
-    setSearchPinyin(pinyinString);
-  }, [search]);
   useEffect(() => {
     function handleKeyDown(e) {
       // Auto input
@@ -216,6 +206,29 @@ function Dialog() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  useEffect(() => {
+    if (show && !editing) {
+      setSelectedIndex(0);
+      inputRef.current.focus();
+    }
+    if (!show) {
+      setEditing(false);
+      setEditIndex(-1);
+      setSelectedIndex(0);
+      setSearch('');
+      setSearchPinyin('');
+    }
+  }, [show]);
+
+  useEffect(() => {
+    setSelectedIndex(0);
+    setEditIndex(-1);
+    const pinyinArray = pinyin(search, { toneType: 'none', type: 'array' });
+    const pinyinString = pinyinArray.join('').toLowerCase();
+    setSearchPinyin(pinyinString);
+  }, [search]);
+
   useEffect(() => {
     if (activeRef.current) {
       activeRef.current.scrollIntoView({
@@ -224,6 +237,7 @@ function Dialog() {
       });
     }
   }, [selectedIndex, editIndex, show]);
+
   useEffect(() => {
     document.body.addEventListener('click', handleClickDocument);
     return () => document.body.removeEventListener('click', handleClickDocument);
