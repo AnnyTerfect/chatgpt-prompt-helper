@@ -30,14 +30,14 @@ const Prompt = forwardRef((props, ref) => {
               className={styles.input}
               type="text"
               value={act}
-              onChange={onChangePrompt}
+              onChange={onChangeAct}
             />
             <textarea
               className={`${styles.input} ${styles.textarea}`}
               type="text"
               rows={8}
               value={prompt}
-              onChange={onChangeAct}
+              onChange={onChangePrompt}
             />
           </div>
         ) : (
