@@ -4,6 +4,10 @@
   "version": "0.0.5",
   "type": "module",
   "description": "This Tampermonkey script is a highly customizable plugin designed to assist with editing and generating ChatGPT prompts.",
+  "author": {
+    "name": "AnnyTerfect",
+    "email": "1247470246@qq.com"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "vite",
