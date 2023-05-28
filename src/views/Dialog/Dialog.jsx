@@ -19,7 +19,6 @@ function Dialog() {
   const [show, setShow] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [editIndex, setEditIndex] = useState(-1);
-  const [confirmIndex, setConfirmIndex] = useState(-1);
 
   const filteredPromptsRef = useRef([]);
   const inputRef = useRef(null);
@@ -87,7 +86,6 @@ function Dialog() {
   }
   function handleClickDelete(id) {
     setEditIndex(-1);
-    setConfirmIndex(-1);
     savePrompts(prompts.filter((item) => item.id !== id));
     setPrompts((val) => val.filter((item) => item.id !== id));
   }
