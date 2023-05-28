@@ -7,7 +7,7 @@ import { loadPrompts, savePrompts } from '../../data/index';
 import styles from './Dialog.module.scss';
 
 function Dialog() {
-  const [prompts, setPrompts] = useState(loadPrompts());
+  const [prompts, setPrompts] = useState(() => loadPrompts());
   const [editing, setEditing] = useState(false);
   const [search, setSearch] = useState('');
   const [searchPinyin, setSearchPinyin] = useState('');
