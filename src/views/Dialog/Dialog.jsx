@@ -229,6 +229,16 @@ function Dialog() {
                 onDelete={() => handleClickDelete(item.id)}
               />
             ))}
+            {editing ? (
+              <div
+                className={styles.addContainer}
+                onClick={handleClickAdd}
+                onMouseOver={() => setSelectedIndex(filteredPrompts.length)}
+              >
+                +
+              </div>
+            )
+              : null}
           </div>
         </div>
         {editing && (
