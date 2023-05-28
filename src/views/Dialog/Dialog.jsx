@@ -1,8 +1,13 @@
 import React, {
-  useState, useEffect, useRef, useMemo, useCallback,
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
 } from 'react';
 import { pinyin } from 'pinyin-pro';
 import TypeButton from '../../components/Buttons/TypeButton';
+import Prompt from '../../components/Prompt';
 import { loadPrompts, savePrompts } from '../../data/index';
 import styles from './Dialog.module.scss';
 
@@ -63,21 +68,25 @@ function Dialog() {
   }
   function handleChangeAct(e, id) {
     const { value } = e.target;
-    setPrompts((val) => val.map((item) => {
-      if (item.id === id) {
-        return { ...item, act: value };
-      }
-      return item;
-    }));
+    setPrompts((val) =>
+      val.map((item) => {
+        if (item.id === id) {
+          return { ...item, act: value };
+        }
+        return item;
+      })
+    );
   }
   function handleChangePrompt(e, id) {
     const { value } = e.target;
-    setPrompts((val) => val.map((item) => {
-      if (item.id === id) {
-        return { ...item, prompt: value };
-      }
-      return item;
-    }));
+    setPrompts((val) =>
+      val.map((item) => {
+        if (item.id === id) {
+          return { ...item, prompt: value };
+        }
+        return item;
+      })
+    );
   }
   function handleClickDelete(index) {
     if (confirmIndex === index) {
@@ -171,7 +180,8 @@ function Dialog() {
   }, [selectedIndex, editIndex, show]);
   useEffect(() => {
     document.body.addEventListener('click', handleClickDocument);
-    return () => document.body.removeEventListener('click', handleClickDocument);
+    return () =>
+      document.body.removeEventListener('click', handleClickDocument);
   }, [handleClickDocument]);
 
   if (show) {
@@ -214,84 +224,21 @@ function Dialog() {
           </div>
 
           <div className={styles.promptContainer}>
-            {editing ? (
-              <>
-                {filteredPrompts.map((item, index) => (
-                  <div key={item.id}>
-                    <div
-                      className={`${styles.promptEdit} ${
-                        editIndex === index ? styles.active : ''
-                      }`}
-                    >
-                      {editIndex === index ? (
-                        /* Show edit container */
-                        <div
-                          ref={(element) => {
-                            if (index === editIndex) {
-                              activeRef.current = element;
-                            }
-                          }}
-                          className={styles.editContainer}
-                        >
-                          <input
-                            className={styles.input}
-                            type="text"
-                            value={item.act}
-                            onChange={(e) => handleChangeAct(e, item.id)}
-                          />
-                          <textarea
-                            className={`${styles.input} ${styles.textarea}`}
-                            type="text"
-                            rows={8}
-                            value={item.prompt}
-                            onChange={(e) => handleChangePrompt(e, item.id)}
-                          />
-                        </div>
-                      ) : (
-                        /* Show act name */
-                        <p>{item.act}</p>
-                      )}
-
-                      <div className={styles.button}>
-                        {/* Edit or finish button */}
-                        <TypeButton
-                          className={styles.svg}
-                          type={editIndex === index ? 'finish' : 'edit'}
-                          onClick={() => setEditIndex(editIndex === index ? -1 : index)}
-                        />
-                        {/* Delete or confirm button */}
-                        <TypeButton
-                          className={styles.svg}
-                          type={confirmIndex === index ? 'finish' : 'delete'}
-                          onClick={() => handleClickDelete(index)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-                <div className={styles.addContainer} onClick={handleClickAdd}>
-                  +
-                </div>
-              </>
-            ) : (
-              filteredPrompts.map((item, index) => (
-                <div
-                  ref={(element) => {
-                    if (index === selectedIndex) {
-                      activeRef.current = element;
-                    }
-                  }}
-                  className={`cursor-pointer ${styles.prompt} ${
-                    index === selectedIndex ? styles.active : ''
-                  }`}
-                  key={item.id}
-                  onClick={(e) => show && handleClickPrompt(e, item.id)}
-                  onMouseOver={() => show && setSelectedIndex(index)}
-                >
-                  <p>{item.act}</p>
-                </div>
-              ))
-            )}
+            {filteredPrompts.map((item, index) => (
+              <Prompt
+                key={item.id}
+                ref={index === selectedIndex ? activeRef : null}
+                editing={editing}
+                act={item.act}
+                prompt={item.prompt}
+                selected={index === selectedIndex}
+                onEnter={(e) => handleClickPrompt(e, item.id)}
+                onMouseOver={() => setSelectedIndex(index)}
+                onChangePrompt={(e) => handleChangePrompt(e, item.id)}
+                onChangeAct={(e) => handleChangeAct(e, item.id)}
+                onDelete={() => handleClickDelete(item.index)}
+              />
+            ))}
           </div>
         </div>
         {editing && (

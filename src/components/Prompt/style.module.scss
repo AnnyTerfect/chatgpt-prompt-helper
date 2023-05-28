@@ -1,0 +1,35 @@
+.prompt {
+  @apply px-4 py-1 select-none leading-8;
+}
+
+.promptEdit {
+  @apply px-4 py-2;
+  @apply hover:bg-gray-700;
+  @apply flex flex-row justify-between items-center;
+  @apply select-none;
+
+  .editContainer {
+    @apply w-1/1;
+    .input {
+      @apply w-1/1;
+      @apply bg-transparent border-white rounded;
+      @apply text-white;
+      @apply focus: outline-none focus:border-blue-500;
+    }
+    .textarea {
+      @apply mt-2;
+    }
+  }
+
+  .button {
+    @apply flex;
+
+    .svg {
+      @apply ml-2 w-1.2em h-1.2em cursor-pointer;
+    }
+  }
+}
+
+.selected {
+  @apply bg-gray-700;
+}
