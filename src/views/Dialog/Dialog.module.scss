@@ -43,7 +43,7 @@
     @apply overflow-y-scroll;
 
     .prompt {
-      @apply px-4 py-1 select-none;
+      @apply px-4 py-1 select-none leading-8;
     }
 
     .promptEdit {
@@ -68,17 +68,7 @@
         @apply flex;
 
         .svg {
-          @apply ml-1 w-1.2em h-1.2em cursor-pointer;
-
-          .edit {
-            @apply stroke-2 stroke-white;
-          }
-          .finish {
-            @apply stroke-2 stroke-white fill-none;
-          }
-          .delete {
-            @apply stroke-2 stroke-white fill-none;
-          }
+          @apply ml-2 w-1.2em h-1.2em cursor-pointer;
         }
       }
     }

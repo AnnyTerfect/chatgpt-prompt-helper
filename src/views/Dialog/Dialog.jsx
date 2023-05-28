@@ -252,19 +252,19 @@ function Dialog() {
                         </div>
                       ) : (
                         /* Show act name */
-                        <h2>{item.act}</h2>
+                        <p>{item.act}</p>
                       )}
 
                       <div className={styles.button}>
                         {/* Edit or finish button */}
                         <TypeButton
-                          className="w-1.2em h-1.2em ml-2"
+                          className={styles.svg}
                           type={editIndex === index ? 'finish' : 'edit'}
                           onClick={() => setEditIndex(editIndex === index ? -1 : index)}
                         />
                         {/* Delete or confirm button */}
                         <TypeButton
-                          className="w-1.2em h-1.2em ml-2"
+                          className={styles.svg}
                           type={confirmIndex === index ? 'finish' : 'delete'}
                           onClick={() => handleClickDelete(index)}
                         />
@@ -291,7 +291,7 @@ function Dialog() {
                   onClick={(e) => show && handleClickPrompt(e, item.id)}
                   onMouseOver={() => show && setSelectedIndex(index)}
                 >
-                  <h2>{item.act}</h2>
+                  <p>{item.act}</p>
                 </div>
               ))
             )}
