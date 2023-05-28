@@ -71,7 +71,7 @@ TypeButton.defaultProps = {
 TypeButton.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
-  type: PropTypes.oneOf(['edit', 'finish', 'delete']).isRequired,
+  type: PropTypes.oneOf(['edit', 'finish', 'delete', 'up', 'down', 'top', 'bottom']).isRequired,
 };
 
 export default TypeButton;
