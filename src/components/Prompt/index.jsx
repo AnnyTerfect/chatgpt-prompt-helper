@@ -1,9 +1,9 @@
-import React, { forwardRef, useState } from 'react';
+import React, { memo, forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './style.module.scss';
 import TypeButton from '../Buttons/TypeButton';
 
-const Prompt = forwardRef((props, ref) => {
+const Prompt = memo(forwardRef((props, ref) => {
   const {
     editing,
     selected,
@@ -102,7 +102,7 @@ const Prompt = forwardRef((props, ref) => {
       <p>{act}</p>
     </div>
   );
-});
+}));
 
 Prompt.defaultProps = {
   editing: false,
