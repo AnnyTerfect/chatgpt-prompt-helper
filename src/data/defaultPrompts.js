@@ -1,15 +1,15 @@
 export default [
   {
     act: '翻译：中译英 (列出参考)',
-    prompt: 'Please translate following sentence to English with academic writing, and provide some related authoritative examples:\n',
+    prompt: 'Please translate the following sentence to English with academic writing, and provide some related authoritative examples:\n',
   },
   {
     act: '翻译：中译英',
-    prompt: 'Please translate following sentence to English with academic writing:\n',
+    prompt: 'Please translate the following sentence to English with academic writing:\n',
   },
   {
     act: '翻译：中译英 (long command, 列出参考)',
-    prompt: 'Please translate following sentence to English with academic writing, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. Further, provide some related authoritative acadaemic examples:\n',
+    prompt: 'Please translate the following sentence to English with academic writing, improve the spelling, grammar, clarity, concision, and overall readability. When necessary, rewrite the whole sentence. Further, provide some related authoritative academic examples:\n',
   },
   {
     act: '翻译：充当英翻中',
@@ -21,11 +21,11 @@ export default [
   },
   {
     act: '修改：学术英语polish (列出修改)',
-    prompt: 'Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. Furthermore, list all modification and explain the reasons to do so in markdown table:\n',
+    prompt: 'Below is a paragraph from an academic paper. Polish the writing to meet the academic style, and improve the spelling, grammar, clarity, concision, and overall readability. When necessary, rewrite the whole sentence. Furthermore, list all modifications and explain the reasons to do so in markdown table:\n',
   },
   {
     act: '修改：学术英语polish',
-    prompt: 'Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence:\n',
+    prompt: 'Below is a paragraph from an academic paper. Polish the writing to meet the academic style, and improve the spelling, grammar, clarity, concision, and overall readability. When necessary, rewrite the whole sentence:\n',
   },
   {
     act: '修改：中文 polish',
@@ -33,7 +33,7 @@ export default [
   },
   {
     act: '查找语法错误',
-    prompt: 'Below is a paragraph from an academic paper. Find all grammar mistakes, list mistakes in a markdown table and explain how to correct them:\n',
+    prompt: 'Below is a paragraph from an academic paper. Find all grammar mistakes, list mistakes in a markdown table, and explain how to correct them:\n',
   },
   {
     act: '解释每步代码的作用',
@@ -41,7 +41,7 @@ export default [
   },
   {
     act: '模拟编程社区来回答你的问题，并提供解决代码。',
-    prompt: 'I want you to act as a stackoverflow post and respond in Chinese. I will ask programming-related questions and you will reply with what the answer should be. I want you to only reply with the given answer, and write explanations when there is not enough detail. do not write explanations. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first question is:\n',
+    prompt: 'I want you to act as a Stackoverflow post and respond in Chinese. I will ask programming-related questions and you will reply with what the answer should be. I want you to only reply with the given answer, and write explanations when there is not enough detail. do not write explanations. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first question is:\n',
   },
   {
     act: '充当 前端开发助手',
@@ -105,7 +105,7 @@ export default [
   },
   {
     act: '担任雅思写作考官',
-    prompt: '我希望你假定自己是雅思写作考官，根据雅思评判标准，按我给你的雅思考题和对应答案给我评分，并且按照雅思写作评分细则给出打分依据。此外，请给我详细的修改意见并写出满分范文。第一个问题是：It is sometimes argued that too many students go to university, while others claim that a university education should be a universal right.Discuss both sides of the argument and give your own opinion.对于这个问题，我的答案是：In some advanced countries, it is not unusual for more than 50% of young adults to attend college or university. Critics, however, claim that many university courses are worthless and young people would be better off gaining skills in the workplace. In this essay, I will examine both sides of this argument and try to reach a conclusion.There are several reasons why young people today believe they have the right to a university education. First, growing prosperity in many parts of the world has increased the number of families with money to invest in their children’s future. At the same time, falling birthrates mean that one- or two-child families have become common, increasing the level of investment in each child. It is hardly surprising, therefore, that young people are willing to let their families support them until the age of 21 or 22. Furthermore, millions of new jobs have been created in knowledge industries, and these jobs are typically open only to university graduates.However, it often appears that graduates end up in occupations unrelated to their university studies. It is not uncommon for an English literature major to end up working in sales, or an engineering graduate to retrain as a teacher, for example. Some critics have suggested that young people are just delaying their entry into the workplace, rather than developing professional skills.请依次给到我以下内容：具体分数及其评分依据、文章修改意见、满分范文。\n',
+    prompt: '我希望你假定自己是雅思写作考官，根据雅思评判标准，按我给你的雅思考题和对应答案给我评分，并且按照雅思写作评分细则给出打分依据。此外，请给我详细的修改意见并写出满分范文。第一个问题是：It is sometimes argued that too many students go to university, while others claim that university education should be a universal right. Discuss both sides of the argument and give your own opinion. 对于这个问题，我的答案是：In some advanced countries, it is not unusual for more than 50% of young adults to attend college or university. Critics, however, claim that many university courses are worthless and that young people would be better off gaining skills in the workplace. In this essay, I will examine both sides of this argument and try to reach a conclusion. There are several reasons why young people today believe they have the right to a university education. First, growing prosperity in many parts of the world has increased the number of families with money to invest in their children’s future. At the same time, falling birthrates mean that one- or two-child families have become common, increasing the level of investment in each child. It is hardly surprising, therefore, that young people are willing to let their families support them until the age of 21 or 22. Furthermore, millions of new jobs have been created in knowledge industries, and these jobs are typically open only to university graduates. However, it often appears that graduates end up in occupations unrelated to their university studies. It is not uncommon for an English literature major to end up working in sales, or an engineering graduate to retrain as a teacher, for example. Some critics have suggested that young people are just delaying their entry into the workplace, rather than developing professional skills.请依次给到我以下内容：具体分数及其评分依据、文章修改意见、满分范文。\n',
   },
   {
     act: '充当 Linux 终端',
