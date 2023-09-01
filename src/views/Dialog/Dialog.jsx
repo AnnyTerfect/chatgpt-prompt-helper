@@ -176,7 +176,7 @@ function Dialog() {
       }
 
       // Toggle dialog
-      if ((e.metaKey || e.ctrlKey) && e.key === '/') {
+      if (e.ctrlKey && e.key === '/') {
         setShow((val) => !val);
       }
       if (e.key === 'Escape') {
