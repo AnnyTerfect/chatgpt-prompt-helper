@@ -6,7 +6,7 @@ function App() {
   useEffect(() => {
     window.addEventListener('load', () => {
       const textarea = document.querySelector('textarea');
-      textarea.placeholder = 'Press / to focus. Press Ctrl/Command + / to call helper.';
+      textarea.placeholder = 'Press / to focus. Press Ctrl + / to call helper.';
     });
     function handleKeyDown(event) {
       const textarea = document.querySelector('textarea');
