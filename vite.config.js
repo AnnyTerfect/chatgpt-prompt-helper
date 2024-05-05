@@ -13,15 +13,16 @@ export default defineConfig({
       userscript: {
         icon: 'https://chat.openai.com/favicon.ico',
         namespace: 'npm/vite-plugin-monkey',
-        match: ['https://chat.openai.com/*'],
+        match: ['https://chatgpt.com/*'],
       },
       build: {
         externalGlobals: {
+          /*
           react: cdn.jsdelivr('React', 'umd/react.production.min.js'),
           'react-dom': cdn.jsdelivr(
             'ReactDOM',
             'umd/react-dom.production.min.js',
-          ),
+          ),*/
         },
       },
     }),

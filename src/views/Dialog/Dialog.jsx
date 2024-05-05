@@ -47,15 +47,18 @@ function Dialog() {
     }
   }, [editing, prompts]);
 
-  const enter = useCallback((id) => {
-    const textarea = document.querySelector('textarea');
-    textarea.value = prompts.find((item) => item.id === id).prompt;
-    textarea.dispatchEvent(new Event('input', { bubbles: true }));
-    textarea.focus();
-    setShow(false);
-    setSearch('');
-    setSelectedIndex(0);
-  }, [prompts]);
+  const enter = useCallback(
+    (id) => {
+      const textarea = document.querySelector('textarea');
+      textarea.value = prompts.find((item) => item.id === id).prompt;
+      textarea.dispatchEvent(new Event('input', { bubbles: true }));
+      textarea.focus();
+      setShow(false);
+      setSearch('');
+      setSelectedIndex(0);
+    },
+    [prompts]
+  );
 
   const handleClickDocument = useCallback(() => {
     if (!editing) {
@@ -63,30 +66,37 @@ function Dialog() {
     }
   }, [editing]);
 
-  const handleClickPrompt = useCallback((e, id) => {
-    e.preventDefault();
-    e.stopPropagation();
-    enter(id);
-  }, [enter]);
+  const handleClickPrompt = useCallback(
+    (e, id) => {
+      e.preventDefault();
+      e.stopPropagation();
+      enter(id);
+    },
+    [enter]
+  );
 
   const handleChangeAct = useCallback((e, id) => {
     const { value } = e.target;
-    setPrompts((val) => val.map((item) => {
-      if (item.id === id) {
-        return { ...item, act: value };
-      }
-      return item;
-    }));
+    setPrompts((val) =>
+      val.map((item) => {
+        if (item.id === id) {
+          return { ...item, act: value };
+        }
+        return item;
+      })
+    );
   }, []);
 
   const handleChangePrompt = useCallback((e, id) => {
     const { value } = e.target;
-    setPrompts((val) => val.map((item) => {
-      if (item.id === id) {
-        return { ...item, prompt: value };
-      }
-      return item;
-    }));
+    setPrompts((val) =>
+      val.map((item) => {
+        if (item.id === id) {
+          return { ...item, prompt: value };
+        }
+        return item;
+      })
+    );
   }, []);
 
   const handleClickDelete = useCallback((id) => {
@@ -177,6 +187,7 @@ function Dialog() {
 
       // Toggle dialog
       if (e.ctrlKey && e.key === '/') {
+        console.log('haha');
         setShow((val) => !val);
       }
       if (e.key === 'Escape') {
@@ -239,7 +250,8 @@ function Dialog() {
 
   useEffect(() => {
     document.body.addEventListener('click', handleClickDocument);
-    return () => document.body.removeEventListener('click', handleClickDocument);
+    return () =>
+      document.body.removeEventListener('click', handleClickDocument);
   }, [handleClickDocument]);
 
   if (show) {
@@ -309,8 +321,7 @@ function Dialog() {
               >
                 +
               </div>
-            )
-              : null}
+            ) : null}
           </div>
         </div>
         {editing && (
