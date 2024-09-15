@@ -1,5 +1,5 @@
 import React, { memo, forwardRef, useState } from "react";
-import { TypeButton } from "../Buttons";
+import { TypeButton } from "@/components/Buttons";
 
 const Prompt = memo(
   forwardRef(function (
@@ -22,29 +22,20 @@ const Prompt = memo(
       selected: boolean;
       act: string;
       prompt: string;
-      onEnter: () => void;
-      onMouseOver: () => void;
-      onChangePrompt: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-      onChangeAct: (e: React.ChangeEvent<HTMLInputElement>) => void;
-      onDelete: () => void;
-      onUp: () => void;
-      onDown: () => void;
-      onTop: () => void;
-      onBottom: () => void;
+      onEnter?: () => void;
+      onMouseOver?: () => void;
+      onChangePrompt?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+      onChangeAct?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+      onDelete?: () => void;
+      onUp?: () => void;
+      onDown?: () => void;
+      onTop?: () => void;
+      onBottom?: () => void;
     } = {
       editing: false,
       selected: false,
       act: "",
       prompt: "",
-      onEnter: () => {},
-      onMouseOver: () => {},
-      onChangePrompt: () => {},
-      onChangeAct: () => {},
-      onDelete: () => {},
-      onUp: () => {},
-      onDown: () => {},
-      onTop: () => {},
-      onBottom: () => {},
     },
     ref: React.Ref<HTMLDivElement>
   ) {
@@ -79,25 +70,25 @@ const Prompt = memo(
             <TypeButton
               className="w-[1.2em] h-[1.2em] cursor-pointer"
               type="top"
-              onClick={() => onTop()}
+              onClick={onTop}
             />
             {/* Move Up button */}
             <TypeButton
               className="w-[1.2em] h-[1.2em] cursor-pointer"
               type="up"
-              onClick={() => onUp()}
+              onClick={onUp}
             />
             {/* Move Down button */}
             <TypeButton
               className="w-[1.2em] h-[1.2em] cursor-pointer"
               type="down"
-              onClick={() => onDown()}
+              onClick={onDown}
             />
             {/* Move To Bottom button */}
             <TypeButton
               className="w-[1.2em] h-[1.2em] cursor-pointer"
               type="bottom"
-              onClick={() => onBottom()}
+              onClick={onBottom}
             />
             {/* Edit or finish button */}
             <TypeButton
@@ -109,8 +100,8 @@ const Prompt = memo(
             <TypeButton
               className="w-[1.2em] h-[1.2em] cursor-pointer"
               type={status === "confirm" ? "finish" : "delete"}
-              onClick={() =>
-                status === "confirm" ? onDelete() : setStatus("confirm")
+              onClick={
+                status === "confirm" ? onDelete : () => setStatus("confirm")
               }
             />
           </div>

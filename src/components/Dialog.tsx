@@ -9,9 +9,12 @@ import { pinyin } from "pinyin-pro";
 import TypeButton from "@/components/Buttons/TypeButton";
 import Prompt from "@/components/Prompt";
 import { loadPrompts, savePrompts } from "@/data";
+import { PromptWithIdPinyin } from "@/types";
 
 function Dialog() {
-  const [prompts, setPrompts] = useState(() => loadPrompts());
+  const [prompts, setPrompts] = useState<PromptWithIdPinyin[]>(() =>
+    loadPrompts()
+  );
   const [editing, setEditing] = useState(false);
   const [search, setSearch] = useState("");
   const [searchPinyin, setSearchPinyin] = useState("");
@@ -19,9 +22,9 @@ function Dialog() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [editIndex, setEditIndex] = useState(-1);
 
-  const filteredPromptsRef = useRef([]);
-  const inputRef = useRef(null);
-  const activeRef = useRef(null);
+  const filteredPromptsRef = useRef<PromptWithIdPinyin[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const activeRef = useRef<HTMLDivElement>(null);
 
   const filteredPrompts = useMemo(() => {
     const newFilteredPrompts = prompts.filter((item) => {
@@ -47,9 +50,17 @@ function Dialog() {
   }, [editing, prompts]);
 
   const enter = useCallback(
-    (id) => {
+    (id: string) => {
       const textarea = document.querySelector("textarea");
-      textarea.value = prompts.find((item) => item.id === id).prompt;
+      if (!textarea) {
+        return;
+      }
+
+      const prompt = prompts.find((item) => item.id === id);
+      if (!prompt) {
+        return;
+      }
+      textarea.value = prompt.prompt;
       textarea.dispatchEvent(new Event("input", { bubbles: true }));
       textarea.focus();
       setShow(false);
@@ -65,40 +76,45 @@ function Dialog() {
     }
   }, [editing]);
 
+  // Click event
   const handleClickPrompt = useCallback(
-    (e, id) => {
-      e.preventDefault();
-      e.stopPropagation();
+    (id: string) => {
       enter(id);
     },
     [enter]
   );
 
-  const handleChangeAct = useCallback((e, id) => {
-    const { value } = e.target;
-    setPrompts((val) =>
-      val.map((item) => {
-        if (item.id === id) {
-          return { ...item, act: value };
-        }
-        return item;
-      })
-    );
-  }, []);
+  const handleChangeAct = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+      const { value } = e.target;
+      setPrompts((val) =>
+        val.map((item) => {
+          if (item.id === id) {
+            return { ...item, act: value };
+          }
+          return item;
+        })
+      );
+    },
+    []
+  );
 
-  const handleChangePrompt = useCallback((e, id) => {
-    const { value } = e.target;
-    setPrompts((val) =>
-      val.map((item) => {
-        if (item.id === id) {
-          return { ...item, prompt: value };
-        }
-        return item;
-      })
-    );
-  }, []);
+  const handleChangePrompt = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>, id: string) => {
+      const { value } = e.target;
+      setPrompts((val) =>
+        val.map((item) => {
+          if (item.id === id) {
+            return { ...item, prompt: value };
+          }
+          return item;
+        })
+      );
+    },
+    []
+  );
 
-  const handleClickDelete = useCallback((id) => {
+  const handleClickDelete = useCallback((id: string) => {
     setEditIndex(-1);
     setPrompts((val) => val.filter((item) => item.id !== id));
   }, []);
@@ -117,7 +133,7 @@ function Dialog() {
     setSelectedIndex(filteredPromptsRef.current.length);
   }, []);
 
-  const handleUp = useCallback((index) => {
+  const handleUp = useCallback((index: number) => {
     if (index === 0) {
       return;
     }
@@ -132,7 +148,7 @@ function Dialog() {
     setSelectedIndex(index - 1);
   }, []);
 
-  const handleDown = useCallback((index) => {
+  const handleDown = useCallback((index: number) => {
     if (index === filteredPromptsRef.current.length - 1) {
       return;
     }
@@ -147,7 +163,7 @@ function Dialog() {
     setSelectedIndex(index + 1);
   }, []);
 
-  const handleTop = useCallback((index) => {
+  const handleTop = useCallback((index: number) => {
     if (index === 0) {
       return;
     }
@@ -162,7 +178,7 @@ function Dialog() {
     setSelectedIndex(0);
   }, []);
 
-  const handleBottom = useCallback((index) => {
+  const handleBottom = useCallback((index: number) => {
     if (index === filteredPromptsRef.current.length - 1) {
       return;
     }
@@ -178,7 +194,7 @@ function Dialog() {
   }, []);
 
   useEffect(() => {
-    function handleKeyDown(e) {
+    function handleKeyDown(e: KeyboardEvent) {
       // Auto input
       if (show && !editing && inputRef.current) {
         inputRef.current.focus();
@@ -217,7 +233,7 @@ function Dialog() {
   }, []);
 
   useEffect(() => {
-    if (show && !editing) {
+    if (show && !editing && inputRef.current) {
       setSelectedIndex(0);
       inputRef.current.focus();
     }
@@ -301,7 +317,7 @@ function Dialog() {
                 act={item.act}
                 prompt={item.prompt}
                 selected={index === selectedIndex}
-                onEnter={(e) => handleClickPrompt(e, item.id)}
+                onEnter={() => handleClickPrompt(item.id)}
                 onMouseOver={() => setSelectedIndex(index)}
                 onChangePrompt={(e) => handleChangePrompt(e, item.id)}
                 onChangeAct={(e) => handleChangeAct(e, item.id)}

@@ -7,6 +7,7 @@ function App() {
     function handleKeyDown(event: KeyboardEvent) {
       const textarea = document.querySelector("textarea");
       if (
+        textarea &&
         event.key === "/" &&
         !event.metaKey &&
         !event.ctrlKey &&

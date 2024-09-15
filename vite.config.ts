@@ -29,6 +29,10 @@ export default defineConfig({
         },
       },
     }),
-    eslint(),
+    eslint({
+      cache: false,
+      emitWarning: true,
+      emitError: true,
+    }),
   ],
 });

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["postcss.config.js", "tailwind.config.js"]
+}

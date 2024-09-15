@@ -72,7 +72,7 @@ function TypeButton(
     className?: string;
     onClick?: () => void;
     type: "edit" | "finish" | "delete" | "up" | "down" | "top" | "bottom";
-  } = { className: "", onClick: () => {}, type: "edit" }
+  } = { className: "", type: "edit" }
 ) {
   return (
     <BaseButton className={className} onClick={onClick}>
