@@ -273,7 +273,7 @@ function Dialog() {
     return (
       <>
         <div
-          className={`fixed left-1/2 top-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 flex flex-col p-4 max-w-600px max-h-400px w-1/1 h-1/1 bg-gray-900 rounded-xl transition-all duration-600 text-white ${editing ? "max-w-800px max-h-600px" : ""}`}
+          className={`fixed left-1/2 top-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 flex flex-col p-4 max-w-[600px] max-h-[400px] w-full h-full bg-gray-900 rounded-xl transition-all duration-600 text-white ${editing ? "max-w-[800px] max-h-[600px]" : ""}`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex justify-between items-center text-2xl">
@@ -293,7 +293,7 @@ function Dialog() {
             <input
               ref={inputRef}
               type="text"
-              className="mt-5 w-1/1 bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
+              className="mt-5 w-full bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={(e) => {
@@ -308,7 +308,7 @@ function Dialog() {
             />
           </div>
 
-          <div className="mt-4 w-1/1 h-1/1 bg-gray-800 rounded-xl overflow-y-scroll">
+          <div className="mt-4 w-full h-full bg-gray-800 rounded-xl overflow-y-scroll">
             {filteredPrompts.map((item, index) => (
               <Prompt
                 key={item.id}
