@@ -46,7 +46,7 @@ const Prompt = memo(
         <div className="px-4 py-2 hover:bg-gray-700 flex flex-row justify-between items-center select-none">
           {status === "edit" ? (
             /* Show edit container */
-            <div ref={ref} className="w-full">
+            <div ref={ref} className="w-full flex flex-col">
               <input
                 className="w-1/1 bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
                 type="text"
@@ -54,7 +54,7 @@ const Prompt = memo(
                 onChange={onChangeAct}
               />
               <textarea
-                className="mt-2"
+                className="mt-2 w-full bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
                 rows={8}
                 value={prompt}
                 onChange={onChangePrompt}
