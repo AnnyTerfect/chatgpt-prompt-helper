@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./App.scss";
 import Dialog from "@/components/Dialog";
 
 function App() {
