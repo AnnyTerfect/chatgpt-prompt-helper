@@ -273,10 +273,10 @@ function Dialog() {
     return (
       <>
         <div
-          className={`fixed left-1/2 top-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 flex flex-col p-4 max-w-[600px] max-h-[400px] w-full h-full bg-gray-900 rounded-xl transition-all duration-600 text-white ${editing ? "max-w-[800px] max-h-[600px]" : ""}`}
+          className={`duration-600 fixed left-1/2 top-1/2 z-10 flex h-full max-h-[400px] w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 transform flex-col rounded-xl bg-gray-900 p-4 text-white transition-all ${editing ? "max-h-[600px] max-w-[800px]" : ""}`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-between items-center text-2xl">
+          <div className="flex items-center justify-between text-2xl">
             <div>
               Type your prompt here
               <span className="ml-3 text-sm text-gray-400">
@@ -293,7 +293,7 @@ function Dialog() {
             <input
               ref={inputRef}
               type="text"
-              className="mt-5 w-full bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
+              className="mt-5 w-full rounded border-white bg-transparent text-white focus:border-blue-500 focus:outline-none"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={(e) => {
@@ -308,7 +308,7 @@ function Dialog() {
             />
           </div>
 
-          <div className="mt-4 w-full h-full bg-gray-800 rounded-xl overflow-y-scroll">
+          <div className="mt-4 h-full w-full overflow-y-scroll rounded-xl bg-gray-800">
             {filteredPrompts.map((item, index) => (
               <Prompt
                 key={item.id}
@@ -331,7 +331,7 @@ function Dialog() {
             {editing ? (
               <div
                 className={
-                  "py-2 mb-2 text-xl text-center hover:bg-gray-700 cursor-pointer"
+                  "mb-2 cursor-pointer py-2 text-center text-xl hover:bg-gray-700"
                 }
                 onClick={handleClickAdd}
                 onMouseOver={() => setSelectedIndex(filteredPrompts.length)}
@@ -343,7 +343,7 @@ function Dialog() {
         </div>
         {editing && (
           <div
-            className="fixed left-0 top-0 w-full h-full bg-black opacity-50"
+            className="fixed left-0 top-0 h-full w-full bg-black opacity-50"
             onClick={(e) => e.stopPropagation()}
           />
         )}

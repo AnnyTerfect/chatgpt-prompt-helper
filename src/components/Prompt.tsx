@@ -43,18 +43,18 @@ const Prompt = memo(
 
     if (editing) {
       return (
-        <div className="px-4 py-2 hover:bg-gray-700 flex flex-row justify-between items-center select-none">
+        <div className="flex select-none flex-row items-center justify-between px-4 py-2 hover:bg-gray-700">
           {status === "edit" ? (
             /* Show edit container */
-            <div ref={ref} className="w-full flex flex-col">
+            <div ref={ref} className="flex w-full flex-col">
               <input
-                className="w-1/1 bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
+                className="w-1/1 rounded border-white bg-transparent text-white focus:border-blue-500 focus:outline-none"
                 type="text"
                 value={act}
                 onChange={onChangeAct}
               />
               <textarea
-                className="mt-2 w-full bg-transparent border-white rounded text-white focus:outline-none focus:border-blue-500"
+                className="mt-2 w-full rounded border-white bg-transparent text-white focus:border-blue-500 focus:outline-none"
                 rows={8}
                 value={prompt}
                 onChange={onChangePrompt}
@@ -68,37 +68,37 @@ const Prompt = memo(
           <div className="flex flex-row space-x-2">
             {/* Move To Top button */}
             <TypeButton
-              className="w-[1.2em] h-[1.2em] cursor-pointer"
+              className="h-[1.2em] w-[1.2em] cursor-pointer"
               type="top"
               onClick={onTop}
             />
             {/* Move Up button */}
             <TypeButton
-              className="w-[1.2em] h-[1.2em] cursor-pointer"
+              className="h-[1.2em] w-[1.2em] cursor-pointer"
               type="up"
               onClick={onUp}
             />
             {/* Move Down button */}
             <TypeButton
-              className="w-[1.2em] h-[1.2em] cursor-pointer"
+              className="h-[1.2em] w-[1.2em] cursor-pointer"
               type="down"
               onClick={onDown}
             />
             {/* Move To Bottom button */}
             <TypeButton
-              className="w-[1.2em] h-[1.2em] cursor-pointer"
+              className="h-[1.2em] w-[1.2em] cursor-pointer"
               type="bottom"
               onClick={onBottom}
             />
             {/* Edit or finish button */}
             <TypeButton
-              className="w-[1.2em] h-[1.2em] cursor-pointer"
+              className="h-[1.2em] w-[1.2em] cursor-pointer"
               type={status === "edit" ? "finish" : "edit"}
               onClick={() => setStatus(status === "edit" ? "" : "edit")}
             />
             {/* Delete or confirm button */}
             <TypeButton
-              className="w-[1.2em] h-[1.2em] cursor-pointer"
+              className="h-[1.2em] w-[1.2em] cursor-pointer"
               type={status === "confirm" ? "finish" : "delete"}
               onClick={
                 status === "confirm" ? onDelete : () => setStatus("confirm")
@@ -111,7 +111,7 @@ const Prompt = memo(
     return (
       <div
         ref={ref}
-        className={`cursor-pointer px-4 py-1 select-none leading-8 ${
+        className={`cursor-pointer select-none px-4 py-1 leading-8 ${
           selected ? "bg-gray-700" : ""
         }`}
         onClick={onEnter}

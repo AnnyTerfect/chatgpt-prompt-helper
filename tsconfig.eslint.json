@@ -8,5 +8,5 @@
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["postcss.config.js", "tailwind.config.js"]
+  "include": ["postcss.config.js", "tailwind.config.js", "prettier.config.js"]
 }
