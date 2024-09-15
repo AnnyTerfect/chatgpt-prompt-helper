@@ -9,7 +9,7 @@ function BaseButton(
     className?: string;
     onClick?: () => void;
     children: React.ReactNode;
-  } = { className: "", children: null }
+  } = { className: "", children: null },
 ) {
   return (
     <svg

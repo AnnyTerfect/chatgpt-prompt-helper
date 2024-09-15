@@ -37,7 +37,7 @@ const Prompt = memo(
       act: "",
       prompt: "",
     },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) {
     const [status, setStatus] = useState("");
 
@@ -120,7 +120,7 @@ const Prompt = memo(
         <p>{act}</p>
       </div>
     );
-  })
+  }),
 );
 
 export default Prompt;

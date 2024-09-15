@@ -13,7 +13,7 @@ import { PromptWithIdPinyin } from "@/types";
 
 function Dialog() {
   const [prompts, setPrompts] = useState<PromptWithIdPinyin[]>(() =>
-    loadPrompts()
+    loadPrompts(),
   );
   const [editing, setEditing] = useState(false);
   const [search, setSearch] = useState("");
@@ -67,7 +67,7 @@ function Dialog() {
       setSearch("");
       setSelectedIndex(0);
     },
-    [prompts]
+    [prompts],
   );
 
   const handleClickDocument = useCallback(() => {
@@ -81,7 +81,7 @@ function Dialog() {
     (id: string) => {
       enter(id);
     },
-    [enter]
+    [enter],
   );
 
   const handleChangeAct = useCallback(
@@ -93,10 +93,10 @@ function Dialog() {
             return { ...item, act: value };
           }
           return item;
-        })
+        }),
       );
     },
-    []
+    [],
   );
 
   const handleChangePrompt = useCallback(
@@ -108,10 +108,10 @@ function Dialog() {
             return { ...item, prompt: value };
           }
           return item;
-        })
+        }),
       );
     },
-    []
+    [],
   );
 
   const handleClickDelete = useCallback((id: string) => {

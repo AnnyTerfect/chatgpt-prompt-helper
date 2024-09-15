@@ -24,7 +24,7 @@ export default defineConfig({
           react: cdn.jsdelivr("React", "umd/react.production.min.js"),
           "react-dom": cdn.jsdelivr(
             "ReactDOM",
-            "umd/react-dom.production.min.js"
+            "umd/react-dom.production.min.js",
           ),
         },
       },
