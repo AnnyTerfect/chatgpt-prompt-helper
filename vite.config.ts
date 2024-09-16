@@ -17,7 +17,7 @@ export default defineConfig({
       userscript: {
         icon: "https://chat.openai.com/favicon.ico",
         namespace: "npm/vite-plugin-monkey",
-        match: ["https://chatgpt.com/*"],
+        match: ["https://chatgpt.com*"],
       },
       build: {
         externalGlobals: {
