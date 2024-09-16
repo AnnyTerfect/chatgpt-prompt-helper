@@ -5,7 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default tseslint.config(
-  { ignores: ["node_modules", "dist", "eslint.config.js", "prettier.config.js"] },
+  { ignores: ["node_modules", "dist", "eslint.config.js"] },
   {
     languageOptions: {
       parserOptions: {
@@ -29,5 +29,5 @@ export default tseslint.config(
     languageOptions: { globals: globals.browser },
   },
   pluginReact.configs.flat.recommended,
-  eslintPluginPrettierRecommended
+  eslintPluginPrettierRecommended,
 );
