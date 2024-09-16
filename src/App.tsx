@@ -4,7 +4,8 @@ import Dialog from "@/components/Dialog";
 function App() {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      const textarea = document.querySelector("textarea");
+      const textarea: HTMLDivElement | null =
+        document.querySelector("#prompt-textarea");
       if (
         textarea &&
         event.key === "/" &&

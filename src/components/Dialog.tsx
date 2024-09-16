@@ -51,7 +51,8 @@ function Dialog() {
 
   const enter = useCallback(
     (id: string) => {
-      const textarea = document.querySelector("textarea");
+      const textarea: HTMLDivElement | null =
+        document.querySelector("#prompt-textarea");
       if (!textarea) {
         return;
       }
@@ -60,9 +61,16 @@ function Dialog() {
       if (!prompt) {
         return;
       }
-      textarea.value = prompt.prompt;
+      textarea.innerText = prompt.prompt;
       textarea.dispatchEvent(new Event("input", { bubbles: true }));
       textarea.focus();
+      const range = document.createRange();
+      const selection = window.getSelection();
+      range.setStart(textarea, textarea.childNodes.length);
+      range.collapse(true);
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+
       setShow(false);
       setSearch("");
       setSelectedIndex(0);
